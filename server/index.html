@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Math Calculator Web</title>
+</head>
+<body style="font-family: Arial; padding: 30px;">
+    <h1>Math Calculator</h1>
+
+    <form method="POST" action="/calculate">
+        <label for="task">Завдання (наприклад: <code>add 2 3</code>):</label><br>
+        <input type="text" id="task" name="task" size="40" required>
+        <br><br>
+        <input type="submit" value="Обчислити">
+    </form>
+
+    <hr>
+
+    <form method="POST" action="/plot">
+        <label for="function">Функція (наприклад: <code>x**2 + 2*x + 1</code>):</label><br>
+        <input type="text" id="function" name="function" size="40" required>
+        <br><br>
+        <input type="submit" value="Побудувати графік">
+    </form>
+</body>
+</html>

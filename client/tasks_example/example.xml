@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tasks>
+    <task>add 5 7</task>
+    <task>subtract 10 3</task>
+    <task>multiply 3 4</task>
+    <task>divide 8 2</task>
+    <task>solve_linear 5 -10</task>
+    <task>solve_quadratic 1 -3 2</task>
+</tasks>

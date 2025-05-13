@@ -1,0 +1,22 @@
+{
+    "tasks": [
+        {
+            "task": "add 5 7"
+        },
+        {
+            "task": "subtract 10 3"
+        },
+        {
+            "task": "multiply 3 4"
+        },
+        {
+            "task": "divide 8 2"
+        },
+        {
+            "task": "solve_linear 5 -10"
+        },
+        {
+            "task": "solve_quadratic 1 -3 2"
+        }
+    ]
+}
