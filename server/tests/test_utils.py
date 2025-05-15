@@ -1,43 +1,35 @@
-import unittest  # Модуль для написання автоматичних тестів
+import unittest
 import os
-import sys
+from server.utils import save_json, load_json, save_xml, load_xml
 
-# Додаємо кореневу папку до системного шляху, щоб мати доступ до модуля utils.py
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..")))
-
-from server.utils import save_json, load_json, save_xml, load_xml  # Імпортуємо функції для тестування
-
+#Тести для функцій збереження та завантаження JSON/XML
 class TestUtils(unittest.TestCase):
-    """
-    Набір тестів для перевірки функцій збереження та завантаження JSON/XML.
-    """
-
-    def test_save_and_load_json(self):
-        # Тестуємо збереження і завантаження JSON-файлу з даними
+    def test_1_json_save_load(self):
+        """1 - Збереження і завантаження JSON"""
         data = {"a": 1, "b": 2}
         filename = "data/test_result.json"
         save_json(data, filename)
         result = load_json(filename)
         self.assertEqual(result, data)
 
-    def test_save_and_load_xml(self):
-        # Тестуємо збереження і завантаження XML-файлу з даними
+    def test_2_xml_save_load(self):
+        """2 - Збереження і завантаження XML"""
         data = {"x": "10", "y": "20"}
         filename = "data/test_result.xml"
         save_xml(data, filename)
         result = load_xml(filename)
         self.assertEqual(result, data)
 
-    def test_empty_json(self):
-        # Тестуємо збереження і завантаження порожнього JSON
+    def test_3_empty_json(self):
+        """3 - Порожній словник у JSON"""
         data = {}
         filename = "data/test_empty.json"
         save_json(data, filename)
         result = load_json(filename)
         self.assertEqual(result, data)
 
-    def test_empty_xml(self):
-        # Тестуємо збереження і завантаження порожнього XML
+    def test_4_empty_xml(self):
+        """4 - Порожній словник у XML"""
         data = {}
         filename = "data/test_empty.xml"
         save_xml(data, filename)
@@ -45,17 +37,15 @@ class TestUtils(unittest.TestCase):
         self.assertEqual(result, data)
 
     def tearDown(self):
-        # Видаляємо всі створені тестові файли після кожного тесту
-        files = [
+        """Видалення тимчасових файлів після тестів"""
+        for filename in [
             "data/test_result.json",
             "data/test_result.xml",
             "data/test_empty.json",
             "data/test_empty.xml"
-        ]
-        for file in files:
-            if os.path.exists(file):
-                os.remove(file)
+        ]:
+            if os.path.exists(filename):
+                os.remove(filename)
 
-# Запускаємо тести, якщо файл запускається напряму
 if __name__ == "__main__":
-    unittest.main(verbosity=2)  # verbose режим — показує повний звіт по кожному тесту
+    unittest.main()
